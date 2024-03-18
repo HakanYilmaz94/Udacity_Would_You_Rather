@@ -28,7 +28,15 @@ function App() {
                     <Route path="/logout" element={<Logout/>}/>
                     <Route path="*" element={<NotFoundPage/>}/>
                 </Routes>
-            ) : <Login/>
+            ) :
+                <Routes>
+                    <Route exact path="/" element={<Login/>}/>
+                    <Route path="/add" element={<Login/>}/>
+                    <Route path="/leaderboard" element={<Login/>}/>
+                    <Route path="/questions/:id" element={<Login/>}/>
+                    <Route path="/logout" element={<Login/>}/>
+                    <Route path="*" element={<NotFoundPage/>}/>
+                </Routes>
             }
 
         </BrowserRouter>
