@@ -15,7 +15,7 @@ const Leaderboard = () => {
 
         for (const user of Object.values(allUsers)) {
             const totalAnswers = Object.values(user.answers).length;
-            const totalQuestions = user.questions.length;
+            const totalQuestions = Object.values(user.questions).length;
             leaderBoardUsers.push({
                 name: user.name,
                 id: user.id,
@@ -26,7 +26,7 @@ const Leaderboard = () => {
             });
         }
 
-        return leaderBoardUsers.sort((a, b) => b.score - a.score);;
+        return leaderBoardUsers.sort((a, b) => b.score - a.score);
     }
 
 

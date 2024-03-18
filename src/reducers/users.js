@@ -32,14 +32,14 @@ export const users = createSlice({
             };
         },
         updateUserByNewQuestion: (state, action) => {
-            const { qid, loggedUser, answer } = action.payload;
+            const { loggedUser, question } = action.payload;
             state.allUsers = {
                 ...state.allUsers,
                 [loggedUser]: {
                     ...state.allUsers[loggedUser],
-                    answers: {
-                        ...state.allUsers[loggedUser].answers,
-                        [qid]: answer
+                    questions: {
+                        ...state.allUsers[loggedUser].questions,
+                        [question.id]: question
                     }
                 }
             };

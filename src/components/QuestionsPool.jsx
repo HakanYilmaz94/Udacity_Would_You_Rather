@@ -24,9 +24,8 @@ const QuestionsPool = () => {
     const prepareQuestions = () => {
         const answeredKeys = Object.keys(allUsers[loggedUser].answers);
         setAnsweredKeys(answeredKeys);
-        const unansweredKeys = Object.keys(questions).filter(qid => !answeredKeys.includes(qid));
-        setUnAnsweredKeys(unansweredKeys);
-        console.log(unAnsweredKeys, answeredKeys);
+        const unAnsweredKeys = Object.keys(questions).filter(qid => !answeredKeys.includes(qid));
+        setUnAnsweredKeys(unAnsweredKeys);
     }
 
     const questionList = () => {
@@ -58,7 +57,7 @@ const QuestionsPool = () => {
                 </Box>
                 <div id="questions" style={{ padding: '5px', backgroundColor: '#fff' }}>
                     {questionList()?.length > 0 ?
-                        (questionList()?.map((question) => (
+                        (questionList()?.reverse().map((question) => (
                             <QuestionPreview key={question.id} question={question} author={allUsers[question.author]}></QuestionPreview>))
                         ) : <span>There is no {selectedTab} questions</span>
                     }

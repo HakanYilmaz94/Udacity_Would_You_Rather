@@ -45,7 +45,6 @@ const QuestionCard = () => {
         const params = { qid: id, answer: selectedOption, loggedUser: loggedUser };
         dispatch(updateUserByAnswer(params));
         dispatch(saveQuestionAnswer(params));
-        console.log(selectedOption);
     };
 
     const calculateProgressBar = (selectedOption, isCalculated) => {

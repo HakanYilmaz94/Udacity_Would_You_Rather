@@ -6,10 +6,11 @@ import { changeLogged, handleAllUsers } from '../reducers/users';
 import { getUsers, getQuestions } from '../utils/_DATA';
 import Spinner from './Spinner';
 import { handleQuestions } from '../reducers/questions';
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [selectedUser, setSelectedUser] = useState('');
   const [users, setUsers] = useState(null);
 
@@ -46,6 +47,7 @@ const Login = () => {
   };
 
   const handleLogin = () => {
+    navigate('/');
     dispatch(changeLogged({ isLogged: true, user: selectedUser }));
   };
 

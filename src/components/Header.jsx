@@ -29,7 +29,7 @@ const Header = () => {
           TabIndicatorProps={{ style: { backgroundColor: "#D97D54" } }}
         >
           <Tab label="Home" component={Link} to="/" />
-          <Tab label="New Question" component={Link} to="/new-question" />
+          <Tab label="New Question" component={Link} to="/add" />
           <Tab label="LeaderBoard" component={Link} to="/leaderboard" />
           <Tab label="Logout" component={Link} to="/logout" />
         </Tabs>

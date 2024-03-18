@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card, CardContent, Typography, TextField, Button, Box } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
-import { saveQuestion } from '../reducers/questions';
+import {saveQuestion, saveQuestionAnswer} from '../reducers/questions';
 import { useNavigate } from 'react-router-dom';
 import { generateUID } from '../utils/_DATA';
+import {updateUserByNewQuestion} from "../reducers/users";
 
 function NewQuestionCard() {
 
@@ -23,11 +24,9 @@ function NewQuestionCard() {
   };
 
   const handleSubmit = () => {
-    console.log('Option 1:', option1);
-    console.log('Option 2:', option2);
     const generatedQuestion = prepareQuestion(option1, option2);
-    console.log(generatedQuestion);
     dispatch(saveQuestion({ question: generatedQuestion }));
+    dispatch(updateUserByNewQuestion({ question: generatedQuestion, loggedUser: loggedUser }));
     navigate('/');
   };
 

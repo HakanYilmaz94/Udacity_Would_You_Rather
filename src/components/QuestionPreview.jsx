@@ -7,7 +7,7 @@ const QuestionPreview = ({ question, author }) => {
     const navigate = useNavigate();
 
     const forwardToQuestion = () => {
-        navigate(`/question/${question.id}`);
+        navigate(`/questions/${question.id}`);
     };
 
     return (

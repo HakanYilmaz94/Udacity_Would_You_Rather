@@ -25,7 +25,6 @@ export const questions = createSlice({
             };
         },
         saveQuestion: (state, action) => {
-            console.log(action.payload);
             const { question } = action.payload;
             state.questionList = {
                 ...state.questionList,

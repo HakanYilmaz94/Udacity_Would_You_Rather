@@ -3,7 +3,6 @@ import { Avatar, Box, Typography } from '@mui/material';
 
 const UserSummary = ({ avatar, name, totalAnswer, totalQuestions, score }) => {
 
-    console.log(name);
     return (
         <Box
             display="flex"
