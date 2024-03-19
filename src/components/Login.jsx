@@ -47,7 +47,6 @@ const Login = () => {
   };
 
   const handleLogin = () => {
-    navigate('/');
     dispatch(changeLogged({ isLogged: true, user: selectedUser }));
   };
 

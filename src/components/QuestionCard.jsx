@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, Typography, FormControl, RadioGroup, Radio, FormControlLabel, Button, Box } from '@mui/material';
 import ProgressBar from './ProgressBar';
-import { useParams } from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { saveQuestionAnswer } from '../reducers/questions';
 import { updateUserByAnswer } from '../reducers/users';
@@ -11,13 +11,10 @@ const QuestionCard = () => {
     const [selectedOption, setSelectedOption] = useState('');
     const [progressOption1, setProgressOption1] = useState(0);
     const [progressOption2, setProgressOption2] = useState(0);
-
     const [chosenAnswer, setChosenAnswer] = useState(null);
-
     const { id } = useParams();
-
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
     const questions = useSelector((state) => state.questions.questionList);
     const allUsers = useSelector((state) => state.users.allUsers);
     const loggedUser = useSelector((state) => state.users.loggedUser);
@@ -31,6 +28,9 @@ const QuestionCard = () => {
     }, [loggedUser]);
 
     const fetchQuestion = () => {
+        if (questions[id] == null) {
+            return navigate('/questions/invalid_id');
+        }
         setQuestion(questions[id]);
         const userAnswer = allUsers[loggedUser].answers[id];
         setChosenAnswer(userAnswer);

@@ -1,11 +1,10 @@
 
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {} from 'react';
+import {useSelector } from 'react-redux';
 import UserSummary from './UserSummary';
 
 
 const Leaderboard = () => {
-
 
     const allUsers = useSelector((state) => state.users.allUsers);
 
@@ -29,11 +28,10 @@ const Leaderboard = () => {
         return leaderBoardUsers.sort((a, b) => b.score - a.score);
     }
 
-
     return (
         <>
             {leaderBoardList()?.map((leaderBoardUser) => {
-                return <div id={leaderBoardUser.id}>
+                return <div id={leaderBoardUser.id} key={leaderBoardUser.id}>
                     <UserSummary
                         key={leaderBoardUser.id}
                         avatar={leaderBoardUser.avatar}

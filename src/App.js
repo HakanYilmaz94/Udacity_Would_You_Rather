@@ -26,6 +26,7 @@ function App() {
                     <Route path="/leaderboard" element={<Leaderboard/>}/>
                     <Route path="/questions/:id" element={<QuestionCard/>}/>
                     <Route path="/logout" element={<Logout/>}/>
+                    <Route path="/questions/invalid_id" element={<NotFoundPage/>} />
                     <Route path="*" element={<NotFoundPage/>}/>
                 </Routes>
             ) :
